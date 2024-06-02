@@ -1,0 +1,15 @@
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  .search-field {
+    margin-right: 20px; /* Pousse la barre de recherche un peu à droite */
+    width: 300px; /* Ajustez la largeur selon vos besoins */
+  }
+  
+  button {
+    height: 56px; /* Pour aligner le bouton avec le champ de recherche */
+  }
+  

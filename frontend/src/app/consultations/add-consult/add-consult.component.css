@@ -1,0 +1,25 @@
+mat-card {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+  }
+  
+  mat-form-field {
+    width: 48%;
+    margin-bottom: 16px;
+  }
+  
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  mat-card-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .add-medecin-container {
+    
+    text-align: center;
+    
+  }

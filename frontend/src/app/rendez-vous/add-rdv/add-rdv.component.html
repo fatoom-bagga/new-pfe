@@ -1,0 +1,37 @@
+<div class="add-medecin-container">
+    <mat-card class="add-medecin-card">
+      <h2>Add Rendez-vous</h2>
+      <form [formGroup]="RdvForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Nom du patient</mat-label>
+          <input matInput readonly formControlName="patientName">
+        </mat-form-field>
+        <ng-container *ngIf="isMedecin; else selectMedecin">
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Médecin</mat-label>
+              <input matInput readonly formControlName="medecinName">
+            </mat-form-field>
+          </ng-container>
+          <ng-template #selectMedecin>
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Médecin</mat-label>
+              <mat-select formControlName="medecinName">
+                <mat-option *ngFor="let medecin of medecins" [value]="medecin.name">{{ medecin.name }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </ng-template>
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Date du Rendez-vous</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Motif du Rendez-vous</mat-label>
+            <input matInput formControlName="motif">
+          </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">Add Medecin</button>
+      </form>
+    </mat-card>
+  </div>
+  

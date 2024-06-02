@@ -1,0 +1,76 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button (click)="myDrawer.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span style="flex: auto"></span>
+    <button mat-icon-button>
+      <mat-icon>home</mat-icon>
+    </button>
+    <div>
+      <input matInput [(ngModel)]="searchQuery" (keyup.enter)="search()">
+      <button mat-icon-button (click)="search()">
+        <mat-icon>search</mat-icon>
+      </button>
+    </div>
+    <button mat-button>
+      <mat-icon>person</mat-icon>
+    </button>
+    <button mat-raised-button color="accent" (click)="logout()">Logout</button>
+  </mat-toolbar>
+  <mat-drawer-container>
+    <mat-drawer #myDrawer opened="true" mode="push" position="start">
+      <mat-list>
+        <mat-list-item>
+          <button mat-button>
+            <mat-icon>dashboard</mat-icon>Dashbord
+          </button>
+        </mat-list-item>
+        <mat-list-item>
+          <button mat-button routerLink="patients">
+            <mat-icon>people</mat-icon>Patients
+          </button>
+        </mat-list-item>
+        <mat-list-item>
+          <button mat-button>
+            <mat-icon>date_range</mat-icon>Rendez-vous
+          </button>
+        </mat-list-item>
+        <mat-list-item>
+          <button mat-button>
+            <mat-icon>medical_services</mat-icon>Consultations
+          </button>
+        </mat-list-item>
+        <mat-list-item>
+          <button mat-button routerLink="medecins">
+            <mat-icon>local_hospital</mat-icon>Médecins
+          </button>
+        </mat-list-item>
+        <mat-list-item>
+          <button mat-button routerLink="ordonnances">
+            <mat-icon>local_pharmacy</mat-icon>Ordonnances
+          </button>
+        </mat-list-item>
+        <mat-list-item>
+          <button mat-button routerLink="bilan">
+            <mat-icon>assessment</mat-icon>Bilans
+          </button>
+        </mat-list-item>
+        <mat-list-item>
+          <button mat-button>
+            <mat-icon>assignment</mat-icon>Certificat
+          </button>
+        </mat-list-item>
+        <mat-list-item>
+          <button mat-button routerLink="fiche">
+            <mat-icon>description</mat-icon>Fiches
+          </button>
+        </mat-list-item>
+      </mat-list>
+    </mat-drawer>
+    <mat-drawer-content>
+      <div style="min-height: 600px;"> 
+        <router-outlet></router-outlet>
+      </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
+  

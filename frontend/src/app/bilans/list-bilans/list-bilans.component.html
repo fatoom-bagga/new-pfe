@@ -1,0 +1,23 @@
+<table mat-table [dataSource]="bilans" class="mat-elevation-z8">
+    <ng-container matColumnDef="typeBilan">
+      <th mat-header-cell *matHeaderCellDef> Type de Bilan </th>
+      <td mat-cell *matCellDef="let bilan"> {{ bilan.typeBilan }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef> Date </th>
+      <td mat-cell *matCellDef="let bilan"> {{ bilan.date | date }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let bilan">
+        <button mat-button (click)="onEdit(bilan)">Modifier</button>
+        <button mat-button (click)="onViewDetails(bilan)">Détails</button>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  

@@ -1,0 +1,37 @@
+<div class="container">
+    <mat-card class="section info-section">
+      <h2 class="section-title">Informations du patient</h2>
+      <hr class="title-separator">
+      <div class="patient-info">
+        <p><strong>Nom:</strong> {{ patient.nom }}</p>
+        <p><strong>Prénom:</strong> {{ patient.prenom }}</p>
+        <p><strong>Date de naissance:</strong> {{ patient.dateNaissance }}</p>
+        <!-- Ajoutez d'autres informations nécessaires -->
+      </div>
+    </mat-card>
+  
+    <div class="separator"></div>
+  
+    <mat-card class="section antecedents-section">
+      <h2 class="section-title">Ajouter des antécédents</h2>
+      <hr class="title-separator">
+      <mat-list>
+        <mat-list-item (click)="toggleMedical()">Antécédents Médicaux</mat-list-item>
+        <div *ngIf="showMedical">
+          <textarea matInput [formControl]="medicalDescription" rows="3"></textarea>
+          <button mat-raised-button color="primary" (click)="onSave('medical')">Enregistrer</button>
+        </div>
+        <mat-list-item (click)="toggleSurgical()">Antécédents Chirurgicaux</mat-list-item>
+        <div *ngIf="showSurgical">
+          <textarea matInput [formControl]="surgicalDescription" rows="3"></textarea>
+          <button mat-raised-button color="primary" (click)="onSave('surgical')">Enregistrer</button>
+        </div>
+        <mat-list-item (click)="toggleFamilial()">Antécédents Familiaux</mat-list-item>
+        <div *ngIf="showFamilial">
+          <textarea matInput [formControl]="familialDescription" rows="3"></textarea>
+          <button mat-raised-button color="primary" (click)="onSave('familial')">Enregistrer</button>
+        </div>
+      </mat-list>
+    </mat-card>
+  </div>
+  

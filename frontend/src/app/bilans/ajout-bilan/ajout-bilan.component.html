@@ -1,0 +1,41 @@
+<h1 mat-dialog-title>Ajouter un Bilan</h1>
+<div mat-dialog-content>
+  <form [formGroup]="bilanForm">
+    <mat-form-field>
+      <mat-label>Date</mat-label>
+      <input matInput formControlName="date" readonly>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Médecin</mat-label>
+      <input matInput formControlName="docteur" readonly>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Nom du patient</mat-label>
+      <input matInput readonly [value]="data?.prenom + ' ' + data?.nom" formControlName="patient">
+    </mat-form-field>
+
+    <mat-radio-group formControlName="typeBilan" (change)="onTypeBilanChange($event.value)">
+      <mat-radio-button value="radiographie">Radiographie</mat-radio-button>
+      <mat-radio-button value="biologique">Biologique</mat-radio-button>
+    </mat-radio-group>
+
+    <div *ngIf="bilanForm.get('typeBilan')?.value === 'radiographie'">
+      <mat-form-field>
+        <mat-label>Type de Radiographie</mat-label>
+        <mat-select formControlName="radiographie">
+          <mat-option *ngFor="let rad of radiographies" [value]="rad">{{ rad }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div *ngIf="bilanForm.get('typeBilan')?.value === 'biologique'">
+      <div *ngFor="let bio of biologiques; let i = index">
+        <mat-checkbox (change)="addBiologique(bio)">{{ bio }}</mat-checkbox>
+      </div>
+    </div>
+  </form>
+</div>
+<div mat-dialog-actions class="action">
+  <button  mat-raised-button (click)="onNoClick()">Annuler</button>
+  <button  mat-raised-button (click)="onSubmit()" color="primary">Soumettre</button>
+</div>

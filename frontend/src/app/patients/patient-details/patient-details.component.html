@@ -1,0 +1,75 @@
+<mat-card class="full-width-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Informations du Patient</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="patient-info" *ngIf="patient">
+    <div class="patient-info-column">
+      <mat-card-subtitle>Numéro du Patient:</mat-card-subtitle>
+      <p>{{ patient?.id }}</p>
+      <mat-card-subtitle>Nom Patient:</mat-card-subtitle>
+      <p>{{ patient?.nom }}</p>
+      <mat-card-subtitle>Prénom du Patient:</mat-card-subtitle>
+      <p>{{ patient?.prenom }}</p>
+      <mat-card-subtitle>Date de Naissance:</mat-card-subtitle>
+      <p>{{ patient?.dateNaissance }}</p>
+      <mat-card-subtitle>Adresse:</mat-card-subtitle>
+      <p>{{ patient?.adresse }}</p>
+      <mat-card-subtitle>Sexe:</mat-card-subtitle>
+      <p>{{ patient?.sexe }}</p>
+      <mat-card-subtitle>Etat civil:</mat-card-subtitle>
+      <p>{{ patient?.etatCivil }}</p>
+      <mat-card-subtitle>Nationalité:</mat-card-subtitle>
+      <p>{{ patient?.nationnalite }}</p>
+    </div>
+  </mat-card-content>
+  <mat-divider></mat-divider>
+  <mat-card-actions class="action-buttons">
+    <div class="button-container">
+      <button mat-raised-button color="primary" class="action-button" (click)="openAddOrdonnanceDialog()">Ajouter Ordonnance</button>
+      <button mat-raised-button color="primary" class="action-button" (click)="openAddBilanDialog()">Ajouter Bilan</button>
+      <button mat-raised-button color="primary" class="action-button" (click)="openCertificatDialog()">Ajouter Certificat</button>
+      <button mat-raised-button color="primary" class="action-button" (click)="openAddConsultationDialog()">Ajouter Consultation</button>
+      <button mat-raised-button color="primary" class="action-button" (click)="openAddRendezVousDialog()">Ajouter Rendez-vous</button>
+    </div>
+  </mat-card-actions>
+</mat-card>
+
+<style>
+  .full-width-card {
+    width: 100%;
+    position: relative;
+  }
+
+  .patient-info {
+    display: flex;
+    width: 100%;
+  }
+
+  .patient-info-column {
+    flex: 1;
+    font-size: 18px; /* Augmente la taille des informations du patient */
+    margin-bottom: 16px; /* Augmente l'espace entre les éléments */
+    padding: 0;
+  }
+
+  .action-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: absolute;
+    right: 16px;
+    top: 50%; /* Positionne les boutons au milieu de la carte */
+    transform: translateY(-50%); /* Centre verticalement les boutons */
+  }
+
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* Augmente l'espace entre les boutons */
+  }
+
+  .action-button {
+    min-width: 140px; /* Augmente la taille minimale des boutons */
+  }
+</style>

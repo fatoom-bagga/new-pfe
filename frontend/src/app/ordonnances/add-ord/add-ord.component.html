@@ -1,0 +1,47 @@
+<div mat-dialog-title>
+  Ajouter une ordonnance pour {{ data.prenom }} {{ data.nom }}
+</div>
+<form [formGroup]="empForm" (ngSubmit)="onSubmit()">
+  <div mat-dialog-content class="content">
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Médecin</mat-label>
+        <input matInput readonly [value]="data?.medecinName" formControlName="docteur">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Nom du patient</mat-label>
+        <input matInput readonly [value]="data?.prenom + ' ' + data?.nom" formControlName="patient">
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div formArrayName="medicaments" >
+      <div class="row" *ngFor="let medicamentControl of medicamentsFormArray.controls; let i = index" [formGroupName]="i">
+        <mat-form-field appearance="outline">
+          <mat-label>Médicament {{i + 1}}</mat-label>
+          <input matInput type="text" placeholder="Nom du médicament" formControlName="nom">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Quantité</mat-label>
+          <input matInput type="text" placeholder="Quantité" formControlName="quantite">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Posologie</mat-label>
+          <input matInput type="text" placeholder="Posologie" formControlName="posologie">
+        </mat-form-field>
+        <button mat-raised-button color="warn" type="button" (click)="removeMedicament(i)"><mat-icon>delete</mat-icon></button>
+      </div>
+    </div>
+    <button mat-raised-button color="primary" type="button" (click)="addMedicament()"><mat-icon>add</mat-icon></button>
+  </div>
+  <div mat-dialog-actions class="action">
+    <button mat-raised-button [mat-dialog-close]="false" type="button">Annuler</button>
+    <button mat-raised-button color="primary" type="submit">Soumettre</button>
+  </div>
+</form> 

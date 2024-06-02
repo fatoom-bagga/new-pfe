@@ -1,0 +1,13 @@
+<div [formGroup]="searchForm" class="search-container">
+    <mat-form-field appearance="fill" class="search-field">
+      <mat-label>Rechercher un patient</mat-label>
+      <mat-select formControlName="search">
+        <mat-option *ngFor="let patient of filteredPatients" [value]="patient">
+          {{ patient.nom }} {{ patient.prenom }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <button mat-raised-button color="primary" (click)="onSearch()">Vas-y</button>
+  </div>
+  

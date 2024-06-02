@@ -1,0 +1,28 @@
+.list-medecins-container {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .mat-elevation-z8 {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  mat-header-cell {
+    font-weight: bold;
+  }
+  
+  mat-cell, mat-header-cell {
+    padding: 8px 16px;
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+  }
+  

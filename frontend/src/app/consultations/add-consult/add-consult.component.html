@@ -1,0 +1,67 @@
+<form [formGroup]="consultationForm" (ngSubmit)="onSubmit()">
+    <mat-card >
+        <h2 class="add-medecin-container">Ajouter consultation</h2>
+      <mat-card-content>
+        <div class="form-row">
+            <mat-form-field appearance="fill">
+              <mat-label>Nom du médecin</mat-label>
+              <input matInput formControlName="doctorName" readonly>
+            </mat-form-field>
+    
+            <mat-form-field appearance="fill">
+              <mat-label>Patient</mat-label>
+              <input matInput formControlName="patient" readonly>
+            </mat-form-field>
+          </div>
+          <div class="form-row">
+            <mat-form-field appearance="fill">
+                <mat-label>Date</mat-label>
+                <input matInput formControlName="date" readonly>
+              </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Motif</mat-label>
+            <input matInput formControlName="motif" required>
+          </mat-form-field>
+        </div>
+        <div class="form-row">
+          <mat-form-field appearance="fill">
+            <mat-label>Poids (kg)</mat-label>
+            <input matInput type="number" formControlName="poids" required>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill">
+            <mat-label>Taille (cm)</mat-label>
+            <input matInput type="number" formControlName="taille" required>
+          </mat-form-field>
+        </div>
+  
+        <div class="form-row">
+          <mat-form-field appearance="fill">
+            <mat-label>Température (°C)</mat-label>
+            <input matInput type="number" formControlName="temperature" required>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill">
+            <mat-label>Fréquence Cardiaque (bpm)</mat-label>
+            <input matInput type="number" formControlName="frequenceC" required>
+          </mat-form-field>
+        </div>
+  
+        <div class="form-row">
+          <mat-form-field appearance="fill">
+            <mat-label>Pression Artérielle (mmHg)</mat-label>
+            <input matInput type="number" formControlName="pressArt" required>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill">
+            <mat-label>Diagnostique</mat-label>
+            <input matInput formControlName="diagnostique" required>
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit" >Ajouter</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+  

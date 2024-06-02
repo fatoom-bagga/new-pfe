@@ -1,0 +1,37 @@
+/* .patient-info {
+    display: flex;
+    width: 100%;
+  }
+  .full-width-card {
+    width: 100%;
+  }
+  
+  .patient-info-column {
+    flex: 1;
+    font-size: 16px; 
+    margin-bottom: 8px; 
+    padding: 0;
+  }
+  
+  .info-list {
+    list-style-type: none;
+    
+  }
+
+  .action-buttons {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .button-container {
+    display: flex;
+    gap: 8px; 
+  }
+  
+  .action-button {
+    min-width: 120px; 
+  }
+  
+  
+  
+   */

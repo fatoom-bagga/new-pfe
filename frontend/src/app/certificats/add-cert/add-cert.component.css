@@ -1,0 +1,23 @@
+.form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .form-field {
+    flex: 1;
+  }
+  
+  .textarea-container {
+    width: 100%;
+  }
+  
+  .textarea-field {
+    width: 100%;
+  }
+  .action{
+    padding: 0px 25px 20px;
+    button{
+        flex: 1;
+    }
+}
